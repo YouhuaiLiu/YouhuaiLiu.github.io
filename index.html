@@ -191,7 +191,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-25 10:00:01" itemprop="dateModified" datetime="2024-09-25T10:00:01+01:00">2024-09-25</time>
+      <time title="修改时间：2024-09-25 10:27:07" itemprop="dateModified" datetime="2024-09-25T10:27:07+01:00">2024-09-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,12 +222,41 @@
 <p>コントロールブレーンではSTPで使用されるBPDUやARP、ルーティングプロトコルなどの各種通信がCPUやメモリをし応して処理する。（ソフトウェア処理）</p>
 <p>データブレーンではレイヤ2やレイヤ3の転送処理やACL、QoSの処理などを行う。ASICという集積回路を使用して、CPUを使わず処理し、ソフトウェア処理より高速。（ハードウェア処理）</p>
 <h3 id="MACアドレステーブル"><a href="#MACアドレステーブル" class="headerlink" title="MACアドレステーブル"></a>MACアドレステーブル</h3><p>CatalystスイッチではMACテーブルをCAMテーブルとも呼ぶ。それはMACアドレスがCAMというメモリに格納されているからだ。</p>
-<h4 id="CAM"><a href="#CAM" class="headerlink" title="CAM"></a>CAM</h4><p><strong>CAM</strong>はContent Addressable Memoryの略で、メモリ内に格納されているビットが完全一致する内容を高速に検索する機能を持ったメモリ。</p>
+<h4 id="CAM"><a href="#CAM" class="headerlink" title="CAM"></a>CAM</h4><p><span style="background-color: #E0FFFF; color : #001f3f"><strong>CAM</strong></span>はContent Addressable Memoryの略で、メモリ内に格納されているビットが完全一致する内容を高速に検索する機能を持ったメモリ。</p>
 <p>このメモリをMACアドレステーブルの保存領域として使用し、ASICにより検索することで、転送ポートの決定を高速化している。MACアドレステーブルは通常完全一致するものを探せばいいのでCAMを使うが、機種によってはTCAMが使われる。</p>
-<h4 id="TCAM"><a href="#TCAM" class="headerlink" title="TCAM"></a>TCAM</h4><p><strong>TCAM</strong>はTernary Content Addressable Memoryの略で、CAM同様、高速に検索するためのメモリ。CAMとの違いは、CAMは完全一致のものを探すのに対し、TCAMは検索対象にビットが0の部分と1の部分、両方でもいい部分の三つの状態を持つことで、部分一致のものを検索する用途として使用される。</p>
+<h4 id="TCAM"><a href="#TCAM" class="headerlink" title="TCAM"></a>TCAM</h4><p><span style="background-color: #E0FFFF; color : #001f3f"><strong>TCAM</strong></span>はTernary Content Addressable Memoryの略で、CAM同様、高速に検索するためのメモリ。CAMとの違いは、CAMは完全一致のものを探すのに対し、TCAMは検索対象にビットが0の部分と1の部分、両方でもいい部分の三つの状態を持つことで、部分一致のものを検索する用途として使用される。</p>
 <p>例：サブネットマスク、ワイルドカードマスク</p>
 <p>ルーティング機能を持つレイヤ3スイッチではACLやルーティングテーブルなどの検索や、QoSの処理などにTCAMが使われる。</p>
-<p>スイッチではこれらCAMやTCAMをASICで検索することで、高速に転送処理を行っている。</p>
+<p>スイッチではこれらCAMやTCAMをASICで検索することで、高速に転送処理を行っている。<span style="background-color: #E0FFFF; color : #001f3f">****</span></p>
+<h4 id="MACアドレステーブルのエントリ"><a href="#MACアドレステーブルのエントリ" class="headerlink" title="MACアドレステーブルのエントリ"></a>MACアドレステーブルのエントリ</h4><p>CiscoのCatalystスイッチでコマンドにより調べることが出来るMACアドレステーブルには以下の内容が登録されている。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>VLAN</td>
+<td>所属しているVLAN</td>
+</tr>
+<tr>
+<td>MAC Address</td>
+<td>学習したMACアドレス</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>登録方法</td>
+</tr>
+<tr>
+<td>Ports</td>
+<td>該当するスイッチのポート</td>
+</tr>
+</tbody></table>
+<p>スイッチがフレームを受信するとMACアドレステーブルに完全一致するMACアドレスを探し、見つかれば、Portsで指定されているポートにフレームを転送する。</p>
+<p><span style="background-color: #E0FFFF; color : #001f3f"><strong>ただし所属するVLANが違う場合は転送されない</strong></span></p>
+<p>受信したフレームの宛先MACアドレスがMACアドレステーブルに登録されていない場合、受信したポートのVLANと<span style="background-color: #E0FFFF; color : #001f3f"><strong>同じVLAN</strong></span>に所属するポート（受信ポート以外）すべてにフラッディングする。</p>
+<p>また送信元MACアドレスも確認し、そのMACアドレスが登録されていない場合、新たにMACアドレステーブルのエントリに自動的に追加する。</p>
 
       
     </div>
