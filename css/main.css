@@ -65,6 +65,10 @@
     color-scheme: light;
   }
 }
+.highlight {
+  background-color: #E0FFFF;
+  color: #001f3f;
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
