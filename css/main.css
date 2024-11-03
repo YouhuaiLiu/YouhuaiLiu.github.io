@@ -65,10 +65,6 @@
     color-scheme: light;
   }
 }
-.highlight {
-  background-color: #E0FFFF;
-  color: #001f3f;
-}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -1398,7 +1394,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #6244ff;
+    background: #1ae57d;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
