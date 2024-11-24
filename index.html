@@ -120,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -146,6 +146,87 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Hodgepodge-pod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Youhuai Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of Youhuai Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Blog of Youhuai Liu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Hodgepodge-pod/" class="post-title-link" itemprop="url">Hodgepodge pod</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-22 14:17:24" itemprop="dateCreated datePublished" datetime="2024-11-22T14:17:24+00:00">2024-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-24 13:57:11" itemprop="dateModified" datetime="2024-11-24T13:57:11+00:00">2024-11-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="UART"><a href="#UART" class="headerlink" title="UART"></a>UART</h1><h2 id="Why-UART-only-send-one-Byte-per-Frame"><a href="#Why-UART-only-send-one-Byte-per-Frame" class="headerlink" title="Why UART only send one Byte per Frame"></a>Why UART only send one Byte per Frame</h2><p>UART is a serial communication protocol, which send data bit by bit in a sequential stream. </p>
+<p>Since the protocol includes additional bits to ensure reliable communication, each data byte needs it own “envelope” (frame) to be transmitted and it limit UART to send a byte per frame.</p>
+<h1 id="readLine-response-5"><a href="#readLine-response-5" class="headerlink" title="readLine(response, 5)"></a>readLine(response, 5)</h1><h2 id="environment"><a href="#environment" class="headerlink" title="environment:"></a>environment:</h2><p>char response[6];</p>
+<p>kl28z</p>
+<p>import serialPort.c</p>
+<h2 id="why-response-have-only-6-bit-array"><a href="#why-response-have-only-6-bit-array" class="headerlink" title="why response have only 6 bit array"></a>why response have only 6 bit array</h2><p>the response only expect to receive 5 bit and in C, the string need \0 at the end, which take 1 bit</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -183,9 +264,150 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-11-03 15:15:22 / 修改时间：15:48:52" itemprop="dateCreated datePublished" datetime="2024-11-03T15:15:22+00:00">2024-11-03</time>
+      <time title="创建时间：2024-11-16 15:15:22" itemprop="dateCreated datePublished" datetime="2024-11-16T15:15:22+00:00">2024-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-19 08:13:43" itemprop="dateModified" datetime="2024-11-19T08:13:43+00:00">2024-11-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Embedded-System/" itemprop="url" rel="index"><span itemprop="name">Embedded System</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Meaning-of-Term"><a href="#Meaning-of-Term" class="headerlink" title="Meaning of Term"></a>Meaning of Term</h1><h3 id="Integrated-Circuit-IC"><a href="#Integrated-Circuit-IC" class="headerlink" title="Integrated Circuit (IC)"></a>Integrated Circuit (IC)</h3><p>Electronic circuit with components built into a single piece of silicon, enabling extreme miniaturization, mass production, and cost reduction.</p>
+<h3 id="Microcontroller-Unit-MCU"><a href="#Microcontroller-Unit-MCU" class="headerlink" title="Microcontroller Unit (MCU)"></a>Microcontroller Unit (MCU)</h3><p>Integrated circuit containing CPU, peripherals, support circuit, and often memory.</p>
+<h3 id="Central-Processing-Unit-CPU"><a href="#Central-Processing-Unit-CPU" class="headerlink" title="Central Processing Unit (CPU)"></a>Central Processing Unit (CPU)</h3><p>Hardware circuit that exectues a program’s instructions.</p>
+<h3 id="instruction"><a href="#instruction" class="headerlink" title="instruction"></a>instruction</h3><p>Command for processor to execute. Consists of an operation and zero or more operands.</p>
+<h3 id="Printed-Circuit-Board-PCB"><a href="#Printed-Circuit-Board-PCB" class="headerlink" title="Printed Circuit Board (PCB)"></a>Printed Circuit Board (PCB)</h3><p>Board which holds electronic components and conductive traces for interconnection.</p>
+<h3 id="Light-emitting-Diode-LED"><a href="#Light-emitting-Diode-LED" class="headerlink" title="Light-emitting Diode (LED)"></a>Light-emitting Diode (LED)</h3><p>tronic component which emits lights. Used for indicators, backlighting, and general illumination.</p>
+<h3 id="Peripheral"><a href="#Peripheral" class="headerlink" title="Peripheral"></a>Peripheral</h3><p>Hardware that helps CPU interfacing or providing special functionality.</p>
+<h3 id="Analog"><a href="#Analog" class="headerlink" title="Analog"></a>Analog</h3><p>Capable of taking on an infinite number of values</p>
+<h3 id="Digital"><a href="#Digital" class="headerlink" title="Digital"></a>Digital</h3><p>Capable of taking on an infinite number of values</p>
+<h3 id="Analog-to-Digital-Converter-ADC"><a href="#Analog-to-Digital-Converter-ADC" class="headerlink" title="Analog-to-Digital Converter (ADC)"></a>Analog-to-Digital Converter (ADC)</h3><p>Circuit which converts an analog value (e.g. voltage) to its corresponding digital value.</p>
+<h3 id="Digital-to-Analog-Converter-DAC"><a href="#Digital-to-Analog-Converter-DAC" class="headerlink" title="Digital-to-Analog Converter (DAC)"></a>Digital-to-Analog Converter (DAC)</h3><p>Circuit which converts a digital value to its corresponding analog value (e.g. voltage)</p>
+<h3 id="General-purpose-input-output-GPIO-port"><a href="#General-purpose-input-output-GPIO-port" class="headerlink" title="General-purpose input.output (GPIO) port"></a>General-purpose input.output (GPIO) port</h3><p>Peripheral with digital input and output bits</p>
+<h3 id="input-GPIO-port-bit"><a href="#input-GPIO-port-bit" class="headerlink" title="input GPIO port bit"></a>input GPIO port bit</h3><p>portion of GPIO port that enables program to read a single-bit input signal</p>
+<h3 id="output-GPIO-port-bit"><a href="#output-GPIO-port-bit" class="headerlink" title="output GPIO port bit"></a>output GPIO port bit</h3><p>Portion of GPIO port that enables program to read a single-bit output signal</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Typical-Embedded-System-Software-Operations"><a href="#Typical-Embedded-System-Software-Operations" class="headerlink" title="Typical Embedded System Software Operations"></a>Typical Embedded System Software Operations</h2><p>Embedded systems typically perform one or more types of operations:</p>
+<h3 id="Closed-loop-control"><a href="#Closed-loop-control" class="headerlink" title="- Closed-loop control:"></a>- Closed-loop control:</h3><p>Involves controlling an output variable based on one or more input measruements</p>
+<h3 id="Sequencing"><a href="#Sequencing" class="headerlink" title="- Sequencing:"></a>- Sequencing:</h3><p>Involves controlling an output through a sequence of steps.<br>e.g. Steps of icemaker</p>
+<ul>
+<li>fill the ice tray with water</li>
+<li>chill the ice tray until the water is frozen</li>
+<li>heat the ice tray to allow the ice to seperate from the tray</li>
+<li>eject the ice from tray</li>
+</ul>
+<h3 id="Signal-Conditioning-and-processing"><a href="#Signal-Conditioning-and-processing" class="headerlink" title="- Signal Conditioning and processing"></a>- Signal Conditioning and processing</h3><p>Used to average together multiple sensor reading or filter out noise from motors or other devices<br>e.g. Quadcopter’s motor vibrate as they run, introducing noise into the acceleration and rotation readeings. Taking multiple readings and averageing them can reduce the impact of this noise </p>
+<h3 id="Communication-and-networking"><a href="#Communication-and-networking" class="headerlink" title="- Communication and networking"></a>- Communication and networking</h3><p>Allow the device to interact with subsystems or other systems.<br>e.g. The quadcopter receive packets of control data sent by radio from the controller.</p>
+<h2 id="Embedded-System-Attributes"><a href="#Embedded-System-Attributes" class="headerlink" title="Embedded System Attributes"></a>Embedded System Attributes</h2><h3 id="Interfacing-with-Inputs-and-Outputs"><a href="#Interfacing-with-Inputs-and-Outputs" class="headerlink" title="Interfacing with Inputs and Outputs"></a>Interfacing with Inputs and Outputs</h3><p>Embedded computers typically need to sense the environment and then control devices in response. To do this, MCU consist of a CPU surrounded by specialized peripheral hardware circuit that perform much of this interfacing.</p>
+<p>Many external devices use analog sifnals in which the voltage can take on a continuouse range of value to convey information (e.g. temperature sensor indicate its reading by setting its output signal.s voltage to 0.05V&#x2F;C). The analog signal must be converted into digital value for the program to process it, which is done by analog-to-digital converter.</p>
+<p>Correspondingly, to generate sounds accurately, MCU must generate analog voltage signal to drive devices, which is done by digital-to-analog converter.</p>
+<p>For CPU to handle the input, signals should be processed like amplifying weak signals, sdcalling down high-voltage signal, filtering noises, etc. Also, MCU cannot drive power-hungry devices so it needs amolification. </p>
+<p>This also protects circuit by isolating low-voltage components from main voltage.</p>
+<h3 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h3><p>Embedded controllers must typically manage multiple activities concottrenly, often with precise control of the timing.</p>
+<p>To achieve this, MCU shareing the CPU among different parts of the software, and also by performing some processing in hardware peripherals that run independently of the CPU.</p>
+<p>The scheduler determines what pieve of software to run next on the processor and switches execution context as needed to make it happen correctly. </p>
+<p>The most basic shcedulers are simple to use and impose little overhead on the processor. It work best for simple systems and only provide limited help to the developer. </p>
+<p>Advanced schedulers provide better responsiveness andmore fearture to help in program development, which real-time operating systems typically use (e.g. RTX from Keil). But it require more processor’s time and memory.</p>
+<h3 id="Responsiveness"><a href="#Responsiveness" class="headerlink" title="Responsiveness"></a>Responsiveness</h3><p>Embedded system requires make responses in limited time.</p>
+<p>There are two aspects to make a system responsive: raw processing speed and task scheduling </p>
+<p>First, the processor should be fast enough to complete the critical processing before its deadline.</p>
+<p>To achieve this, there are two approach. One is make the code efficient (Optimization), another is use a fast processor.</p>
+<p>However, there is a problem that optimizing code will increase the development cost while recurring per-unit cost. Using a faster processor is more expensive and it may also requrie more careful circuit design methods.</p>
+<p>One the processor exceeds 50MHz, the flash memory will not be able to keep up, forcing CPU desginer to modify the momory system to hide this delay.</p>
+<p>Second, processor need to stay focused on the critical processing rather than being distracted by other processing. If possible, critical processing should be performed by harware peripherals to prevent any software interference.</p>
+<p>Otherwise, some kind of software scheduling approach is needed (using simple sheduling approches or system use interrupts and preemptive scheduler).</p>
+<p>Some such high process demand embedded systems use multicore processors or multiple single-core processors to get higher performance.</p>
+<p>Some embedded systems use multiple processors to simplify design, rather than to get raw processing speed. Separating the processing reduces timing interference among the software components. Many commercial off-the-shelf modules contain an integreated MCU to work.</p>
+<h3 id="Reliability-and-Fault-Handling"><a href="#Reliability-and-Fault-Handling" class="headerlink" title="Reliability and Fault Handling"></a>Reliability and Fault Handling</h3><p>Embedded system are expected to work correctly and reliably because it does not expect user to reboot it. If something fails, the system should minimize the impact of that failure rather than cause further problems. </p>
+<p>Solution might depend on application. There may be method to detect actual or impending and shut down system before trouble occur (thermal sensor to detect overheating, current sensor to detect short-circuited output), the circuit can be designed in a way to make failures easy to detect in software, or be able to analyze historical data to determine failures.</p>
+<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h3><p>When designer designs embedded system, it require to not be too expensive, large, heacy, power-hungry, etc.</p>
+<h1 id="General-Purpose-Input-Output"><a href="#General-Purpose-Input-Output" class="headerlink" title="General Purpose Input&#x2F;Output"></a>General Purpose Input&#x2F;Output</h1><p>For MCU to perform zero and one to compute, the voltage level is used.</p>
+<p>The power supply voltage is called V_DD</p>
+<h2 id="Input-Signals"><a href="#Input-Signals" class="headerlink" title="Input Signals"></a>Input Signals</h2><p>Digital inputs are interpreted based on their voltage levels</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Embedded-System/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Youhuai Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of Youhuai Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Blog of Youhuai Liu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Embedded-System/" class="post-title-link" itemprop="url">Embedded_System</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-03 15:15:22" itemprop="dateCreated datePublished" datetime="2024-11-03T15:15:22+00:00">2024-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-05 14:50:40" itemprop="dateModified" datetime="2024-11-05T14:50:40+00:00">2024-11-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -215,7 +437,28 @@
 <h3 id="Active-Low"><a href="#Active-Low" class="headerlink" title="Active Low"></a>Active Low</h3><p>WHen the Peripheral is under Active Low, it connects to pin and power.</p>
 <p>So the HIGH will deactivate and LOW will activate it.</p>
 <h1 id="Setting-One-Bit-in-a-Register"><a href="#Setting-One-Bit-in-a-Register" class="headerlink" title="Setting One Bit in a Register"></a>Setting One Bit in a Register</h1><p>If write 0b0010 to DOR which the value is 0b1100, the other bits will be overwritten.</p>
-<p>So it needs to </p>
+<p>So it needs to write in the way not affect other digits.</p>
+<h2 id="Solution-1-Read-Modiry-Write"><a href="#Solution-1-Read-Modiry-Write" class="headerlink" title="Solution 1: Read, Modiry, Write"></a>Solution 1: Read, Modiry, Write</h2><p>E.g </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE -&gt; PDDR |= MASK(BLUE_LED_POS);</span><br></pre></td></tr></table></figure>
+<p>or equivalent to</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE -&gt; PDDR =PTE-&gt;PDDR | MASK(BLUE_LED_POS);</span><br></pre></td></tr></table></figure>
+
+<p>In the mask.h the MASK() defined as</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MASK(x) (1UL &lt;&lt; (x))</span></span><br></pre></td></tr></table></figure>
+
+<p>1UL means an unsigned long with the value of 1, and based on the x provided, it will shift the digits.</p>
+<p>Then it will do OR operation on PTE-&gt;PDDR so that it will not change other value.</p>
+<h2 id="Solution-2-Set-Clear-Toggle"><a href="#Solution-2-Set-Clear-Toggle" class="headerlink" title="Solution 2: Set, Clear, Toggle"></a>Solution 2: Set, Clear, Toggle</h2><p>Also, it can use PSOR to write to PDOR. By using PSOR,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE-&gt;PSOR = MASK(BLUE_LED_POS)</span><br></pre></td></tr></table></figure>
+<p>PSOR can only write HIGH to specific PDOR, so it will not overwritten the existing value.</p>
+<p>However, PSOR cannot write LOW or write to other registers. Also, it can only change 1 digit normally.</p>
+<h1 id="Data-Direction-Register"><a href="#Data-Direction-Register" class="headerlink" title="Data Direction Register"></a>Data Direction Register</h1><p>PDDR will decide the direction (Input or Output) of a pin.</p>
+<p>LOW will be Input and HIGH will be Output.</p>
+<p>To make two pins become output can use</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE -&gt; PDDR |= MASK(RED_LED_POS) | MASK(BLUE_LED_MASK);</span><br></pre></td></tr></table></figure>
+<p>To clean the bit in PDDR,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE-&gt;PDDR &amp;= ~ MASK(BLUE_LED_POS);</span><br></pre></td></tr></table></figure>
+<p>~ stand for bitwise NOT</p>
 
       
     </div>

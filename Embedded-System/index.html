@@ -28,7 +28,7 @@
 <meta property="og:description" content="GPIO for OutputGPIO &#x3D; General-purpose input&#x2F;output Digital OutputA 1-bit value causes a voltage on a pin 1 for HIGH and 0 for LOW Active HighWhen the peripheral is under Active High, it conn">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-03T15:15:22.000Z">
-<meta property="article:modified_time" content="2024-11-03T15:48:52.453Z">
+<meta property="article:modified_time" content="2024-11-05T14:50:40.205Z">
 <meta property="article:author" content="Youhuai Liu">
 <meta property="article:tag" content="Embedded System">
 <meta name="twitter:card" content="summary">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GPIO-for-Output"><span class="nav-number">1.</span> <span class="nav-text">GPIO for Output</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Digital-Output"><span class="nav-number">1.1.</span> <span class="nav-text">Digital Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Active-High"><span class="nav-number">1.1.1.</span> <span class="nav-text">Active High</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Active-Low"><span class="nav-number">1.1.2.</span> <span class="nav-text">Active Low</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Setting-One-Bit-in-a-Register"><span class="nav-number">2.</span> <span class="nav-text">Setting One Bit in a Register</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GPIO-for-Output"><span class="nav-number">1.</span> <span class="nav-text">GPIO for Output</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Digital-Output"><span class="nav-number">1.1.</span> <span class="nav-text">Digital Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Active-High"><span class="nav-number">1.1.1.</span> <span class="nav-text">Active High</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Active-Low"><span class="nav-number">1.1.2.</span> <span class="nav-text">Active Low</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Setting-One-Bit-in-a-Register"><span class="nav-number">2.</span> <span class="nav-text">Setting One Bit in a Register</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1-Read-Modiry-Write"><span class="nav-number">2.1.</span> <span class="nav-text">Solution 1: Read, Modiry, Write</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2-Set-Clear-Toggle"><span class="nav-number">2.2.</span> <span class="nav-text">Solution 2: Set, Clear, Toggle</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Direction-Register"><span class="nav-number">3.</span> <span class="nav-text">Data Direction Register</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -190,9 +190,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-11-03 15:15:22 / 修改时间：15:48:52" itemprop="dateCreated datePublished" datetime="2024-11-03T15:15:22+00:00">2024-11-03</time>
+      <time title="创建时间：2024-11-03 15:15:22" itemprop="dateCreated datePublished" datetime="2024-11-03T15:15:22+00:00">2024-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-05 14:50:40" itemprop="dateModified" datetime="2024-11-05T14:50:40+00:00">2024-11-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -221,7 +227,28 @@
 <h3 id="Active-Low"><a href="#Active-Low" class="headerlink" title="Active Low"></a>Active Low</h3><p>WHen the Peripheral is under Active Low, it connects to pin and power.</p>
 <p>So the HIGH will deactivate and LOW will activate it.</p>
 <h1 id="Setting-One-Bit-in-a-Register"><a href="#Setting-One-Bit-in-a-Register" class="headerlink" title="Setting One Bit in a Register"></a>Setting One Bit in a Register</h1><p>If write 0b0010 to DOR which the value is 0b1100, the other bits will be overwritten.</p>
-<p>So it needs to </p>
+<p>So it needs to write in the way not affect other digits.</p>
+<h2 id="Solution-1-Read-Modiry-Write"><a href="#Solution-1-Read-Modiry-Write" class="headerlink" title="Solution 1: Read, Modiry, Write"></a>Solution 1: Read, Modiry, Write</h2><p>E.g </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE -&gt; PDDR |= MASK(BLUE_LED_POS);</span><br></pre></td></tr></table></figure>
+<p>or equivalent to</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE -&gt; PDDR =PTE-&gt;PDDR | MASK(BLUE_LED_POS);</span><br></pre></td></tr></table></figure>
+
+<p>In the mask.h the MASK() defined as</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MASK(x) (1UL &lt;&lt; (x))</span></span><br></pre></td></tr></table></figure>
+
+<p>1UL means an unsigned long with the value of 1, and based on the x provided, it will shift the digits.</p>
+<p>Then it will do OR operation on PTE-&gt;PDDR so that it will not change other value.</p>
+<h2 id="Solution-2-Set-Clear-Toggle"><a href="#Solution-2-Set-Clear-Toggle" class="headerlink" title="Solution 2: Set, Clear, Toggle"></a>Solution 2: Set, Clear, Toggle</h2><p>Also, it can use PSOR to write to PDOR. By using PSOR,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE-&gt;PSOR = MASK(BLUE_LED_POS)</span><br></pre></td></tr></table></figure>
+<p>PSOR can only write HIGH to specific PDOR, so it will not overwritten the existing value.</p>
+<p>However, PSOR cannot write LOW or write to other registers. Also, it can only change 1 digit normally.</p>
+<h1 id="Data-Direction-Register"><a href="#Data-Direction-Register" class="headerlink" title="Data Direction Register"></a>Data Direction Register</h1><p>PDDR will decide the direction (Input or Output) of a pin.</p>
+<p>LOW will be Input and HIGH will be Output.</p>
+<p>To make two pins become output can use</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE -&gt; PDDR |= MASK(RED_LED_POS) | MASK(BLUE_LED_MASK);</span><br></pre></td></tr></table></figure>
+<p>To clean the bit in PDDR,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PTE-&gt;PDDR &amp;= ~ MASK(BLUE_LED_POS);</span><br></pre></td></tr></table></figure>
+<p>~ stand for bitwise NOT</p>
 
     </div>
 
@@ -243,6 +270,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Embedded-System/" rel="next" title="Embedded_System">
+                  Embedded_System <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
