@@ -173,7 +173,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Hoedgepodge%20Pod/" class="post-title-link" itemprop="url">Hoedgepodge</a>
+          <a href="/Hoedgepodge%20Pod/" class="post-title-link" itemprop="url">Hoedgepodge Pod</a>
         </h2>
 
         <div class="post-meta-container">
@@ -183,8 +183,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-11-24 15:49:03" itemprop="dateCreated datePublished" datetime="2024-11-24T15:49:03+00:00">2024-11-24</time>
+      <time title="创建时间：2024-11-24 15:49:03 / 修改时间：19:53:07" itemprop="dateCreated datePublished" datetime="2024-11-24T15:49:03+00:00">2024-11-24</time>
     </span>
 
   
@@ -197,7 +198,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="UART"><a href="#UART" class="headerlink" title="UART"></a>UART</h1><h2 id="Why-UART-only-send-one-Byte-per-Frame"><a href="#Why-UART-only-send-one-Byte-per-Frame" class="headerlink" title="Why UART only send one Byte per Frame"></a>Why UART only send one Byte per Frame</h2><p>UART is a serial communication protocol, which send data bit by bit in a sequential stream. </p>
+<p>Since the protocol includes additional bits to ensure reliable communication, each data byte needs it own “envelope” (frame) to be transmitted and it limit UART to send a byte per frame.</p>
+<h1 id="readLine-response-5"><a href="#readLine-response-5" class="headerlink" title="readLine(response, 5)"></a>readLine(response, 5)</h1><h2 id="environment"><a href="#environment" class="headerlink" title="environment:"></a>environment:</h2><p>char response[6];</p>
+<p>kl28z</p>
+<p>import serialPort.c</p>
+<h2 id="why-response-have-only-6-bit-array"><a href="#why-response-have-only-6-bit-array" class="headerlink" title="why response have only 6 bit array"></a>why response have only 6 bit array</h2><p>the response only expect to receive 5 bit and in C, the string need \0 at the end, which take 1 bit</p>
+
       
     </div>
 
@@ -259,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-11-24 15:44:33" itemprop="dateModified" datetime="2024-11-24T15:44:33+00:00">2024-11-24</time>
+      <time title="修改时间：2024-11-24 19:53:08" itemprop="dateModified" datetime="2024-11-24T19:53:08+00:00">2024-11-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -405,7 +412,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-11-05 14:50:40" itemprop="dateModified" datetime="2024-11-05T14:50:40+00:00">2024-11-05</time>
+      <time title="修改时间：2024-11-24 19:53:09" itemprop="dateModified" datetime="2024-11-24T19:53:09+00:00">2024-11-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -519,7 +526,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-29 20:47:56" itemprop="dateModified" datetime="2024-09-29T20:47:56+01:00">2024-09-29</time>
+      <time title="修改时间：2024-11-24 19:53:09" itemprop="dateModified" datetime="2024-11-24T19:53:09+00:00">2024-11-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -639,6 +646,29 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">errdisable recovery interval &lt;秒数&gt;</span><br></pre></td></tr></table></figure>
 <p>を実行する。</p>
 <p>秒数は30から86400まで指定可能。</p>
+<h2 id="ルーターの基本動作"><a href="#ルーターの基本動作" class="headerlink" title="ルーターの基本動作"></a>ルーターの基本動作</h2><h3 id="パケット転送方式について"><a href="#パケット転送方式について" class="headerlink" title="パケット転送方式について"></a>パケット転送方式について</h3><p>ルーターが受信したパケットを転送する際、まずパケットの宛先IPアドレスを確認する。</p>
+<p>受け取ったパケットをルーティングするには、ルーターに保持されている経路情報を検索する必要がある。</p>
+<p>経路情報を所持しているデータベースをRIB(Routing Information Base)と呼び、これがルーティングテーブルだ。</p>
+<p>ルータはルーティングテーブルからパケットの宛先IPアドレスに該当するエントリを探し、ネクストホップの情報と送信するインターフェイスの情報を取得する。</p>
+<p>検索する際ルーティングテーブルにインターフェイス情報が存在しなかった場合、ネクストホップに向かうためのインターフェイスを再検索し、検索が2回行われる。</p>
+<p>転送に必要な情報が判明すると、ネクストホップに転送するためにARPテーブルを検索して、ネクストホップのMACアドレスを取得する。</p>
+<p>もしMACアドレス情報が存在しなかった場合、ARP要求を送信し、ネクストホップのMACアドレスを取得する。</p>
+<p>MACアドレスが判明したらL2ヘッダを書き換え、指定されたインターフェイスからフレームを送信する。</p>
+<p>上記によると最大3回検索されるので、短縮するためにプロセススイッチング、ファストスイッチング、CEFなどの方法が考え出された。</p>
+<h3 id="プロセススイッチング"><a href="#プロセススイッチング" class="headerlink" title="プロセススイッチング"></a>プロセススイッチング</h3><p>プロセススイッチングはパケットが着信するたびに検索を行う方法で、上記の方法と同様。</p>
+<h3 id="ファストスイッチング"><a href="#ファストスイッチング" class="headerlink" title="ファストスイッチング"></a>ファストスイッチング</h3><p>ファストスイッチングは、初めて転送する宛先にはプロセススイッチングと同様の動作を行い、フレームが送信される。</p>
+<p>プロセススイッチングとの違いは最初の転送処理する際に判明した転送に必要な情報を高速に検索できるキャッシュに保存する。</p>
+<p>以降この宛先への検索はキャッシュを利用する。</p>
+<h3 id="ルータの内部構造"><a href="#ルータの内部構造" class="headerlink" title="ルータの内部構造"></a>ルータの内部構造</h3><p>ルータやスイッチの機能は大きく分けて３つのコンポーネントになり、コントロールブレーン、データブレーン、バックブレーンの３つに分類される。</p>
+<h3 id="コントロールプレーン"><a href="#コントロールプレーン" class="headerlink" title="コントロールプレーン"></a>コントロールプレーン</h3><p>コントロールプレーンはCPU処理によりデバイス全体の制御を行う。<br>他にもパケット転送に必須なルーティングテーブルやMACアドレステーブルなどの経路情報を作成／制御する役割を担う。<br>また、ルータ宛のパケットの処理を行う。</p>
+<p>プロセススイッチングによるパケットの転送はすべてコントロールプレーン上で処理される。CPUによるソフトウェア処理を行うため、処理速度も遅く、CPUの負荷が大きくなる。</p>
+<h3 id="データプレーン"><a href="#データプレーン" class="headerlink" title="データプレーン"></a>データプレーン</h3><p>データプレーンは、ネットワーク機器がパケットの転送処理を行う部分。</p>
+<p>転送のほかに、パケってのカプセル化やACLによるフィルタリング、パケット転送の際に必要な処理はすべてデータプレーンで実行される。</p>
+<p>ファストスイッチングで使用されるキャッシュはデータプレーン上で作成される。</p>
+<p>CEFはデータプレーンだけを使って転送処理するので、ファストスイッチングよりさらに高速で転送処理ができる。</p>
+<h3 id="バックブレーン"><a href="#バックブレーン" class="headerlink" title="バックブレーン"></a>バックブレーン</h3><p>バックブレーンは受信したパケットを受信インターフェイスから送信インターフェイスへ運ぶ役割を担う。</p>
+<h3 id="CEFの概要"><a href="#CEFの概要" class="headerlink" title="CEFの概要"></a>CEFの概要</h3><p>ファストスイッチングでは、キャッシュ内に該当するエントリが存在しないパケットが大量に届いた場合、その都度プロセススイッチングする必要があり、効率が下がる。</p>
+<p>CEF(Cisco Express Forwarding)ではプロセススイッチングを行わず、ルーティングテーブルからあらかじFIB(Forward Information Base)というテーブルを作成する。またARPテーブルからは隣接テーブル(Adjacency Table)を作成する。そしてこの２つのテーブルを紐づける。</p>
 <p><span class="highlight">****</span></p>
 
       
